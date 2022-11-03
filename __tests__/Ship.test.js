@@ -11,6 +11,7 @@ describe("Ship", () => {
 
     expect(ship).toBeInstanceOf(Object);
   });
+
   it("has a starting port property", () => {
     const port = new Port("Dover");
     const itinerary = new Itinerary([port]);
@@ -38,6 +39,7 @@ describe("Ship", () => {
     ship.dock();
 
     expect(ship.currentPort).toBe(calais);
+    expect(calais.ships).toContain(ship);
   });
   it("can't sail further than its itinerary", () => {
     const dover = new Port("Dover");
@@ -49,5 +51,12 @@ describe("Ship", () => {
     ship.dock();
 
     expect(() => ship.setSail()).toThrowError("End of itinerary reached");
+  });
+  it("gets added to port on instantiation", () => {
+    const dover = new Port("Dover");
+    const itinerary = new Itinerary([dover]);
+    const ship = new Ship(itinerary);
+
+    expect(dover.ships).toContain(ship);
   });
 });
