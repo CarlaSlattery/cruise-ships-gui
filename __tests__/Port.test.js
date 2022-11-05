@@ -9,7 +9,7 @@ describe("Port", () => {
     let titanic;
     beforeEach(() => {
       port = new Port("Dover");
-      titanic = {};
+      titanic = jest.fn();
     });
     it("can be instantiated", () => {
       expect(new Port()).toBeInstanceOf(Object);
@@ -23,7 +23,7 @@ describe("Port", () => {
       expect(port.ships).toContain(titanic);
     });
     it("can remove a ship", () => {
-      const queenMary = {};
+      const queenMary = jest.fn();
 
       port.addShip(titanic);
       port.addShip(queenMary);
