@@ -22,7 +22,9 @@ describe("Ship", () => {
         name: "Calais",
         ships: [],
       };
-      itinerary = new Itinerary([dover, calais]);
+      itinerary = {
+        ports: [dover, calais],
+      };
       ship = new Ship(itinerary);
     });
     it("can be instantiated", () => {
