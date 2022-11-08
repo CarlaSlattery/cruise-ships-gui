@@ -8,5 +8,23 @@
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body></body>
+  <body>
+    <div id="viewport">
+      <div id="ports"></div>
+    </div>
+
+    <script src="src/controller.js"></script>
+    <script src="src/Port.js"></script>
+    <script src="src/Itinerary.js"></script>
+    <script>
+      const controller = new Controller();
+      const itinerary = new Itinerary([
+        new Port("Dublin"),
+        new Port("New York"),
+        new Port("Miami"),
+        new Port("Havana"),
+      ]);
+      controller.renderPorts(itinerary.ports);
+    </script>
+  </body>
 </html>
