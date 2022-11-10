@@ -35,3 +35,23 @@ body {
   background-image: url(../images/ship.png);
   position: absolute;
 }
+
+#sailbutton {
+  font-family: "Turret Road", cursive;
+  border: 2px solid white;
+  background-color: purple;
+  color: white;
+  padding: 10px 20px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+#sailbutton:hover {
+  background-color: red;
+  transition: 0.5s ease-in-out;
+}
+#sailbutton:focus {
+  background-color: red;
+  border: 2px solid black;
+  padding-top: 14px;
+}
