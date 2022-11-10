@@ -17,14 +17,27 @@ class Controller {
     const portsElement = document.querySelector("#ports");
     portsElement.style.width = "0px";
 
-    ports.forEach((port, index) => {
+    ports.forEach((port) => {
       const newPortElement = document.createElement("div");
       newPortElement.className = "port";
       newPortElement.dataset.portName = port.name;
       newPortElement.dataset.portIndex = port.index;
+
       portsElement.appendChild(newPortElement);
+
       const portsElementWidth = parseInt(portsElement.style.width, 10);
       portsElement.style.width = `${portsElementWidth + 256}px`;
     });
+  }
+  renderShip() {
+    const ship = this.ship;
+
+    const shipPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
+    const portsElement = document.querySelector(
+      `[data-port-index='${shipPortIndex}']`
+    );
+    const shipElement = document.querySelector("#ship");
+    shipElement.style.top = `${portsElement.offsetTop + 32}px`;
+    shipElement.style.left = `${portsElement.offsetLeft - 32}px`;
   }
 }

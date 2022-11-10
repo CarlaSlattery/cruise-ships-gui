@@ -32,5 +32,3 @@
     window.Ship = Ship;
   }
 })();
-
-module.exports = Ship;
