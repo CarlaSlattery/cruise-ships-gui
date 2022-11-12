@@ -1,6 +1,6 @@
 (function exportPort() {
   class Port {
-    constructor(name, ships) {
+    constructor(name) {
       this.name = name;
       this.ships = [];
     }
@@ -8,8 +8,7 @@
       this.ships.push(ship);
     }
     removeShip(ship) {
-      const index = this.ships.indexOf(ship);
-      this.ships.splice(index, 1);
+      this.ships = this.ships.filter((dockedShip) => dockedShip !== ship);
     }
   }
   if (typeof module !== "undefined" && module.exports) {

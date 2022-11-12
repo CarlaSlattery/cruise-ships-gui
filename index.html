@@ -22,21 +22,21 @@
       <button id="sailbutton">Set Sail!</button>
     </div>
 
-    <script src="src/controller.js"></script>
+    <script src="src/Controller.js"></script>
     <script src="src/Port.js"></script>
     <script src="src/Itinerary.js"></script>
     <script src="src/Ship.js"></script>
     <script>
       const controller = new Controller();
+
       const itinerary = new Itinerary([
         new Port("Dublin"),
         new Port("New York"),
         new Port("Miami"),
         new Port("Havana"),
       ]);
-      const ship = new Ship(itinerary);
       controller.renderPorts(itinerary.ports);
-      controller.renderShip(ship);
+      const ship = new Ship(itinerary);
     </script>
   </body>
 </html>
