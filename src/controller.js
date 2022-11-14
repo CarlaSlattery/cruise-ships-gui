@@ -56,7 +56,7 @@
         `[data-port-index='${nextPortIndex}']`
       );
       if (!nextPortElement) {
-        return alert("End of the line!");
+        alert("End of the line!");
       }
       const shipElement = document.querySelector("#ship");
       const sailInterval = setInterval(() => {
@@ -67,7 +67,38 @@
           clearInterval(sailInterval);
         }
         shipElement.style.left = `${shipLeft + 1}px`;
-      }, 20);
+      }, 10);
+      console.log(ship.currentPort);
+
+      this.updateDisplay();
+    }
+    renderMessage() {
+      const messageElement = document.createElement("div");
+      messageElement.id = "message";
+      messageElement.innerHTML = message;
+
+      const viewport = document.querySelector("#viewport");
+      viewport.appendChild(messageElement);
+
+      setTimeout(() => {
+        viewport.removeChild(messageElement);
+      }, 2000);
+    }
+    updateDisplay() {
+      const currentPortDisplay = document.querySelector("#current");
+
+      const nextPortDisplay = document.querySelector("#next");
+      const currentPortName = ship.currentPort.name;
+      const currentPortIndex = itinerary.ports.indexOf(ship.currentPort);
+      const nextPort = itinerary.ports[currentPortIndex + 1];
+      const nextPortName = nextPort.name;
+
+      if (!nextPort) {
+        nextPortDisplay.innerHTML = `End of the line`;
+      } else {
+        currentPortDisplay.innerHTML = `Current Port: ${currentPortName}`;
+        nextPortDisplay.innerHTML = `Next Port: ${nextPortName}`;
+      }
     }
   }
   if (typeof module !== "undefined" && module.exports) {

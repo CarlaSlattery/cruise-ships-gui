@@ -5,9 +5,31 @@ html {
 body {
   height: 100%;
   background-color: black;
+}
+
+#main {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#header {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#display {
+  background-color: grey;
+  border: 2px solid aquamarine;
+  height: 100px;
+  width: 300px;
+  margin-top: 100px;
+  margin-bottom: 25px;
+}
+
+#display p {
+  font-family: "Turret Road", cursive;
+  padding-left: 1em;
 }
 
 #viewport {
@@ -55,6 +77,7 @@ body {
   border: 2px solid black;
   padding-top: 14px;
 }
+
 #message {
   padding: 16px;
   font-family: "Turret Road", cursive;
