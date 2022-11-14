@@ -55,6 +55,9 @@
       const nextPortElement = document.querySelector(
         `[data-port-index='${nextPortIndex}']`
       );
+      if (!nextPortElement) {
+        return alert("End of the line!");
+      }
       const shipElement = document.querySelector("#ship");
       const sailInterval = setInterval(() => {
         const shipLeft = parseInt(shipElement.style.left, 10);
@@ -65,9 +68,6 @@
         }
         shipElement.style.left = `${shipLeft + 1}px`;
       }, 20);
-      if (!nextPortIndex) {
-        return alert("End of the line!");
-      }
     }
   }
   if (typeof module !== "undefined" && module.exports) {
