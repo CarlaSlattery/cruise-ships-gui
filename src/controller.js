@@ -49,7 +49,7 @@
       const ship = this.ship;
       //   console.log(ship.itinerary);
       //   console.log(ship.currentPort);
-      //  console.log(ship);
+      //console.log(ship);
       const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
       const nextPortIndex = currentPortIndex + 1;
       const nextPortElement = document.querySelector(
@@ -58,10 +58,11 @@
       if (!nextPortElement) {
         alert("End of the line!");
       }
+      this.renderMessage(`Now departing ${ship.currentPort.name}`);
       const shipElement = document.querySelector("#ship");
       const sailInterval = setInterval(() => {
         const shipLeft = parseInt(shipElement.style.left, 10);
-        if (shipLeft === nextPortElement.offsetLeft - 32) {
+        if (nextPortElement && shipLeft === nextPortElement.offsetLeft - 32) {
           ship.setSail();
           ship.dock();
           clearInterval(sailInterval);
@@ -72,7 +73,7 @@
 
       this.updateDisplay();
     }
-    renderMessage() {
+    renderMessage(message) {
       const messageElement = document.createElement("div");
       messageElement.id = "message";
       messageElement.innerHTML = message;
